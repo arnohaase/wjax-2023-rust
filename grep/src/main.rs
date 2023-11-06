@@ -6,8 +6,8 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 /// Find strings in text files
 struct Args {
-    #[clap(short, long)]
     /// The file to be searched
+    #[clap(short, long)]
     path: String,
 
     sarch_string: String,
