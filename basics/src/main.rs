@@ -1,4 +1,7 @@
 fn main() {
+    let my_var: usize;
+    // println!("uninitialized: {}", my_var);
+
     println!("Hello, world {}!", "ihr alle");
 
     let mut a= 1;
@@ -28,8 +31,18 @@ fn main() {
     println!("{}", greeting(&name));
     println!("{}", greeting(&name));
     println!("{}", greeting("ihr alle"));
+
+    greeting("whatever");
+
+    let mut n1 = 10;
+    let mut n2 = 10;
+    inc_dec(&mut n1, &mut n2);
+    // inc_dec(&mut n1, &mut n1);
+    println!("{} {}", n1, n2);
 }
 
+/// generates a greeting from a name
+#[must_use="no reason to call greeting without using the returned string"]
 fn greeting(name: &str) -> String {
     // name.push_str("abc");
     format!("Hallo {}", name)
@@ -40,6 +53,11 @@ fn greeting2(name: Option<&str>) -> String {
         Some(s) => format!("Hallo {}", s),
         None => "Hallo Fremder".to_string(),
     }
+}
+
+fn inc_dec(a: &mut i32, b: &mut i32) {
+    *a += 1;
+    *b -= 1;
 }
 
 #[cfg(test)]
